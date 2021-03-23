@@ -1,0 +1,77 @@
+* {
+  /* 初始化所有边距 */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /*CSS3盒子模型*/
+}
+
+/* 取消所有斜体 */
+em,
+i {
+  font-style: normal
+}
+
+/* 清除所有li标签前面的样式 */
+li {
+  list-style: none
+}
+
+/* 清除图片下的白边 */
+img {
+  border: 0;
+  vertical-align: middle
+}
+
+/* 点击按钮时鼠标样式（小手） */
+button {
+  cursor: pointer
+}
+
+/* 所有a标签颜色+取消下划线 */
+a {
+  color: #666;
+  text-decoration: none
+}
+
+/* 经过所有a标签变红 */
+a:hover {
+  color: #c81623
+}
+
+/* 按钮+表单   字体 */
+button,
+input {
+  font-family: Microsoft YaHei, Heiti SC, tahoma, arial, Hiragino Sans GB, "\5B8B\4F53", sans-serif;
+  /* 手动去除默认灰色边框 */
+  border: 0;
+  /* 编辑时的颜色 */
+  outline: none;
+}
+
+/* body(整个页面的字体+颜色) */
+body {
+  /* CSS3 抗锯齿性 让文字放大也不会变锯齿*/
+  -webkit-font-smoothing: antialiased;
+  background-color: #fff;
+  font: 12px/1.5 Microsoft YaHei, Heiti SC, tahoma, arial, Hiragino Sans GB, "\5B8B\4F53", sans-serif;
+  color: #666;
+}
+
+.hide,
+.none {
+  display: none
+}
+
+/* 使用伪元素清除浮动 */
+.clearfix:after {
+  visibility: hidden;
+  clear: both;
+  display: block;
+  content: ".";
+  height: 0
+}
+
+.clearfix {
+  *zoom: 1
+}
