@@ -5,10 +5,10 @@
         <el-form ref="ruleForm" :model="ruleForm" label-width="80px" status-icon :rules="rules">
           <div class="form_content">
             <el-form-item label="用户名" prop="username">
-              <el-input v-model="ruleForm.username"></el-input>
+              <el-input v-model="ruleForm.username" @keyup.enter.native="onEnter"></el-input>
             </el-form-item>
             <el-form-item label="密码" prop="password">
-              <el-input v-model="ruleForm.password" show-password></el-input>
+              <el-input v-model="ruleForm.password" show-password @keyup.enter.native="onEnter"></el-input>
             </el-form-item>
             <el-form-item>
               <el-button type="primary" @click="submitForm('ruleForm')">立即登录</el-button>
@@ -42,7 +42,12 @@
       }
     },
     methods: {
-
+      //输入框回车事件
+      onEnter(){
+        
+      },
+      
+      //提交表单
       submitForm(formName) {
         this.$refs[formName].validate((valid) => {
           if (valid) {

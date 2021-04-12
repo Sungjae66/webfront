@@ -29,6 +29,7 @@ const routes = [
       icon: "el-icon-s-data",
       requireAuth: true,  // 需要登录
     },
+    leaf:false,  //多个节点
     component: () => import("../views/Layout/index.vue"),
     children: [
       {
@@ -49,6 +50,7 @@ const routes = [
       icon: "el-icon-s-custom",
       requireAuth: true,  // 需要登录
     },
+    leaf:false,
     component: () => import("../views/Layout/index.vue"),
     children: [
       {
@@ -58,6 +60,14 @@ const routes = [
           name: "用户列表"
         },
         component: () => import("../views/User/index.vue")
+      },
+      {
+        path: "/userSettings",
+        name: "UserSettings",
+        meta:{
+          name: "用户配置",
+        },
+        component: () => import("../views/system/index.vue")
       }
     ]
   },
@@ -69,14 +79,12 @@ const routes = [
       icon: "el-icon-s-data",
       requireAuth: true,  // 需要登录
     },
+    leaf:true,  //一个节点
     component: () => import("../views/Layout/index.vue"),
     children: [
       {
         path: "/systemSettings",
         name: "SystemSettings",
-        meta:{
-          name: "用户列表"
-        },
         component: () => import("../views/system/index.vue")
       }
     ]

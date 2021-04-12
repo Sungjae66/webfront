@@ -7,7 +7,6 @@ export default new Vuex.Store({
   state: {
     user:sessionStorage.getItem('user'),
     token:sessionStorage.getItem('token'),
-    count:0,
   },
   mutations: {
     SET_TOKEN:(state,data)=>{
@@ -19,12 +18,10 @@ export default new Vuex.Store({
       sessionStorage.setItem('user',data)
     },
     DEL_TOKEN:(state,data)=>{
-      state.user = data
+      state.token = data
       sessionStorage.removeItem('token')
     },
-    increment :(state,data)=>{
-      state.count++
-    },
+
   },
   actions: {
   },
