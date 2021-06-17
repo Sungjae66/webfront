@@ -1,32 +1,34 @@
 <template>
-  <div id="app">
-    <router-view />
-  </div>
+    <div id="app">
+        <router-view/>
+    </div>
+
 </template>
 
 <style lang="less">
-#app {
-  width: 100%;
-  height: 100%;
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
-  .el-header, .el-footer {
-    background-color: #B3C0D1;
-    color: #333;
-    line-height: 60px;
-  }
-  
-  .el-aside {
-    background-color: #D3DCE6;
-    color: #333;
-  }
-  
-  .el-main {
-    background-color: #E9EEF3;
-    color: #333;
-    line-height: 160px;
-  }
-}
+    #app {
+        width: 100%;
+        height: 100%;
+        font-family: Avenir, Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        color: #2c3e50;
+        .el-header, .el-footer {
+            background-color: #000;
+            color: #fff;
+            line-height: 60px;
+        }
+        
+        .el-aside {
+            background-color: #000;
+            color: #333;
+        }
+        
+        .el-main {
+            background-color: #141a24;
+            color: #333;
+            overflow: hidden;
+            border: 1px solid #fff;
+        }
+    }
 </style>

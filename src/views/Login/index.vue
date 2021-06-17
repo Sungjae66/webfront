@@ -5,16 +5,15 @@
         <el-form ref="ruleForm" :model="ruleForm" label-width="80px" status-icon :rules="rules">
           <div class="form_content">
             <el-form-item label="用户名" prop="username">
-              <el-input v-model="ruleForm.username" @keyup.enter.native="onEnter"></el-input>
+              <el-input v-model="ruleForm.username" @keyup.enter.native="submitForm('ruleForm')"></el-input>
             </el-form-item>
             <el-form-item label="密码" prop="password">
-              <el-input v-model="ruleForm.password" show-password @keyup.enter.native="onEnter"></el-input>
+              <el-input v-model="ruleForm.password" show-password @keyup.enter.native="submitForm('ruleForm')"></el-input>
             </el-form-item>
             <el-form-item>
               <el-button type="primary" @click="submitForm('ruleForm')">立即登录</el-button>
             </el-form-item>
           </div>
-        
         </el-form>
       </div>
     </div>
@@ -44,11 +43,12 @@
     methods: {
       //输入框回车事件
       onEnter(){
-        
+      
       },
       
       //提交表单
       submitForm(formName) {
+        $('input').blur();
         this.$refs[formName].validate((valid) => {
           if (valid) {
             this.$http.get('/user')
@@ -61,7 +61,7 @@
                         type: 'success',
                         duration: 1500,
                         onClose: () => {
-                          this.$store.commit('SET_TOKEN', 'fdsfsdfsdfsd')
+                          this.$store.commit('SET_TOKEN', 'admin')
                           this.$store.commit('SET_USER', this.ruleForm.username)
                           this.$router.push('/index')
                         }

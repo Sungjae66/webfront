@@ -1,3 +1,5 @@
+const webpack = require('webpack')
+
 module.exports = {
   /* 部署生产环境和开发环境下的URL：可对当前环境进行区分*/
   publicPath: process.env.NODE_ENV === 'production' ? '/public/' : './',
@@ -21,4 +23,12 @@ module.exports = {
     https: false,
     hotOnly: false
   },
+  chainWebpack: config => {
+    config.plugin('provide').use(webpack.ProvidePlugin, [{
+      $: 'jquery',
+      jquery: 'jquery',
+      jQuery: 'jquery',
+      'window.jQuery': 'jquery'
+    }])
+  }
 }

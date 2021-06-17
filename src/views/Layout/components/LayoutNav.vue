@@ -2,8 +2,9 @@
   <el-aside class="navWrapper">
     <el-menu v-if="activeIndex"
              :default-active="$route.path"
-             class="el-menu-vertical-demo"
+             class="el-menu-vertical"
              :collapse="isCollapse"
+             background-color="transparent"
              router
     >
       <el-menu-item @click="openMenu" class="openMenu">
@@ -76,9 +77,13 @@
   .navWrapper {
     width: auto !important;
     
+    .el-menu-vertical{
+      /*background-color: transparent;*/
+    }
+    
     .openMenu {
       min-width: 200px;
-      background-color: #70b8ba;
+      background-color: #70b8ba!important;
       color: #fff;
     }
   }
