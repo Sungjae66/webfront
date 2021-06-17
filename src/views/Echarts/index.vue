@@ -59,6 +59,11 @@
             <h1>函数的防抖</h1>
             <el-input v-model="debounceText" placeholder="请输入内容"></el-input>
         </div>
+    
+        <div style="margin-top: 20px">
+            <h1>函数的节流</h1>
+            <el-button :plain="true" @click="alertMsg">打开消息提示</el-button>
+        </div>
     </div>
 </template>
 
@@ -246,7 +251,8 @@
                 },
 
                 debounceText: '',  //防抖文本框
-                timer: null //定时器
+                timer: null, //定时器
+                canRun: true, // 开关
             }
         },
 
@@ -322,23 +328,36 @@
         },
 
         methods: {
-            //防抖：短时间内持续触发一个事件，停止触发后才执行
+            /*
+            * 防抖：短时间内持续触发一个事件，函数不执行，停止触发后的一段时间内才执行
+            * 实现：input输入框实时搜索，设置一个定时器，让事件延迟执行。当再次输入时，则清空上一个还未结束的定时器，并开启新的定时任务。
+            * 理解：持续触发时不断清空定时器，直到不再触发时才开始执行定时器内的任务。
+            * */
             debounce (fn, wait) {
                 if (this.timer !== null) {
                     clearTimeout(this.timer)
                 }
                 this.timer = setTimeout(fn, wait)
             },
-            
-            //节流：持续触发事件但是在规定时间内只执行一次，下次执行只能等到时间到了才会触发。
-            throttle(fn, wait){
-                if(this.timer !== null) return
-                this.timer = setTimeout(fn,wait)
-            },
-            
-            //input输入框防抖
+            //防抖：input输入框实时搜索
             changeText(){
                 console.log(this.debounceText)
+            },
+
+            /*
+            * 节流：持续触发函数时，一段时间内只执行一次函数。
+            * 实现：按钮的点击，设置一个开关为true，此时代表可以执行任务。用户首次触发后，关闭开关并执行任务，此时再次触发事件不会执行。在n秒内任务执行完成，再打开开关，代表可以执行新的任务。
+            * 实现：滚动条的持续滚动
+            * 理解：用户首次触发后，在n秒内持续触发也只会执行一次函数，直到任务执行完成后，用户触发才会再次执行。
+            * */
+            //节流：按钮的点击发送
+            alertMsg(){
+                if(!this.canRun) return false
+                this.canRun = false
+                setTimeout(() => {
+                    this.$message('这是一条消息提示');
+                    this.canRun = true
+                }, 1000)
             },
             
             
