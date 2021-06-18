@@ -22,11 +22,11 @@ const routes = [
     component: () => import('../views/Login/index.vue'),
   },
   {
-    path: "/echarts",
-    name: "Echarts",
+    path: "/home",
+    name: "Home",
     meta:{
-      name: "基础图表",
-      icon: "el-icon-s-data",
+      name: "基础知识",
+      icon: "el-icon-s-home",
       requireAuth: true,  // 需要登录
     },
     leaf:false,  //多个节点
@@ -36,12 +36,31 @@ const routes = [
         path: "/index",
         name: "Index",
         meta:{
-          name: "可视化数据"
+          name: "题型整理"
         },
-        component: () => import("../views/Echarts/index.vue")
+        component: () => import("../views/Home/index.vue")
       },
     ]
   },
+  {
+    path: "/echarts",
+    name: "Echarts",
+    meta:{
+      name: "可视化数据",
+      icon: "el-icon-s-data",
+      requireAuth: true,  // 需要登录
+    },
+    leaf:true,  //一个节点
+    component: () => import("../views/Layout/index.vue"),
+    children: [
+      {
+        path: "/echartspage",
+        name: "echartsPage",
+        component: () => import("../views/Echarts/index.vue")
+      }
+    ]
+  },
+
   {
     path: "/userSystem",
     name: "UserSystem",
@@ -67,12 +86,12 @@ const routes = [
         meta:{
           name: "用户配置",
         },
-        component: () => import("../views/system/index.vue")
+        component: () => import("../views/System/index.vue")
       }
     ]
   },
   {
-    path: "/system",
+    path: "/System",
     name: "System",
     meta:{
       name: "系统设置",
@@ -85,7 +104,7 @@ const routes = [
       {
         path: "/systemSettings",
         name: "SystemSettings",
-        component: () => import("../views/system/index.vue")
+        component: () => import("../views/System/index.vue")
       }
     ]
   },

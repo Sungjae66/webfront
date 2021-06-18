@@ -77,14 +77,13 @@
   .navWrapper {
     width: auto !important;
     
-    .el-menu-vertical{
-      /*background-color: transparent;*/
-    }
-    
     .openMenu {
       min-width: 200px;
-      background-color: #70b8ba!important;
-      color: #fff;
+      background-color: #065d61 !important;
+      color: #eee;
+      i{
+        color: #eee;
+      }
     }
   }
 </style>
