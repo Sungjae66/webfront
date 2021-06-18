@@ -1,5 +1,44 @@
 <template>
     <div class="homeWrapper">
+        <div>
+            <h1>MVC和MVVM的区别</h1>
+            <div>
+                <h3>MVC</h3>
+                <div style="margin-left: 25px;">
+                    <p>MVC：Model View Controller，即模型（model）—— 视图（view）—— 控制器（controller）。</p>
+                    <p>对MVC的解读：MVC是单向通信模式，View跟Model必须通过Controller来承上启下</p>
+                    <div style="margin-left: 25px;">
+                        <p>M：是应用程序中用于处理应用程序数据逻辑的部分，通常负责在数据库中存取数据。它需要提供接口给Controller访问数据。</p>
+                        <p>V：是应用程序中处理数据显示的部分，通常是依据模型数据创建的。</p>
+                        <p>C：是应用程序中处理用户交互的部分，通常负责从视图读取数据，控制用户输入，并向模型发送数据。</p>
+                        <p>通信过程：View 接受用户交互请求==>请求转交给Controller处理==>Controller 操作Model进行数据更新保存==>Model通知View更新==>View 更新变化数据使用户得到反馈。</p>
+                    </div>
+                    <p>MVC的思想：Controller负责将model的数据用View显示出来。</p>
+                </div>
+            </div>
+    
+            <div class="box2">
+                <h3>MVVM</h3>
+                <div style="margin-left: 25px;">
+                    <p>MVVM：Model View ViewModel，即数据模型（model）—— 视图（view）—— 视图模型（ViewModel）。</p>
+                    <p>对MVVM的解读：</p>
+                    <div style="margin-left: 25px;">
+                        <p>M：是后端传递的数据。</p>
+                        <p>V：是所看到的页面。</p>
+                        <p>VM：是MVVM模式的核心，它是连接View和Model的桥梁。它有两个方向：一是将模型（Model）转化成视图(View)，即将后端传递的数据转化成所看到的页面。实现的方式是：数据绑定。二是将视图(View)转化成模型(Model)，即将所看到的页面转化成后端的数据。实现的方式是：DOM 事件监听。这两个方向都实现的，我们称之为数据的双向绑定。</p>
+                    </div>
+                    <p>数据双向绑定的方式：</p>
+                    <div style="margin-left: 25px;">
+                    
+                    </div>
+                    <p>MVVM的优点：</p>
+                    <div style="margin-left: 25px;">
+                        <p>实现了视图和数据模型的相互解耦，减少了对DOM的操作，降低了维护成本，提高了代码的复用性和开发效率。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
         <div class="box1">
             <h1>手写响应式</h1>
             <div>
