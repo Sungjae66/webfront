@@ -36,7 +36,7 @@ const routes = [
         path: "/index",
         name: "Index",
         meta:{
-          name: "题型整理"
+          name: "问题整理"
         },
         component: () => import("../views/Home/index.vue")
       },

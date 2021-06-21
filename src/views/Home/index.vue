@@ -1,7 +1,7 @@
 <template>
     <div class="homeWrapper">
         <div>
-            <h1>MVC和MVVM的区别</h1>
+            <h1>1、MVC和MVVM的区别</h1>
             <div>
                 <h3>MVC</h3>
                 <div style="margin-left: 25px;">
@@ -25,30 +25,28 @@
                     <div style="margin-left: 25px;">
                         <p>M：是后端传递的数据。</p>
                         <p>V：是所看到的页面。</p>
-                        <p>VM：是MVVM模式的核心，它是连接View和Model的桥梁。它有两个方向：一是将模型（Model）转化成视图(View)，即将后端传递的数据转化成所看到的页面。实现的方式是：数据绑定。二是将视图(View)转化成模型(Model)，即将所看到的页面转化成后端的数据。实现的方式是：DOM 事件监听。这两个方向都实现的，我们称之为数据的双向绑定。</p>
+                        <p>VM：是MVVM模式的核心，它是连接View和Model的桥梁。它有两个方向：</p>
+                        <div style="margin-left: 35px;">
+                            <p>一是将模型（Model）转化成视图(View)，即将后端传递的数据转化成所看到的页面。实现的方式是：数据绑定。</p>
+                            <p>二是将视图(View)转化成模型(Model)，即将所看到的页面转化成后端的数据。实现的方式是：DOM 事件监听。</p>
+                            <p>这两个方向都实现的，我们称之为数据的双向绑定。</p>
+                        </div>
                     </div>
-                    <p>数据双向绑定的方式：</p>
-                    <div style="margin-left: 25px;">
-                    
-                    </div>
-                    <p>MVVM的优点：</p>
-                    <div style="margin-left: 25px;">
-                        <p>实现了视图和数据模型的相互解耦，减少了对DOM的操作，降低了维护成本，提高了代码的复用性和开发效率。</p>
-                    </div>
+                    <p>MVVM的优点：实现了视图和数据模型的相互解耦，减少了对DOM的操作，降低了维护成本，提高了代码的复用性和开发效率。</p>
                 </div>
             </div>
         </div>
         
         <div class="box1">
-            <h1>手写响应式</h1>
+            <h1>2、手写响应式</h1>
             <div>
-                <input type="text">
-                <div id="model" style="color: #fff;height: 40px;"></div>
+                <input type="text" id="responsInput">
+                <div id="model" style="color: #fff;height: 30px;"></div>
             </div>
         </div>
         
         <div class="box1">
-            <h1>事件捕捉和事件冒泡</h1>
+            <h1>3、事件捕获和事件冒泡</h1>
             <div class="wrap">
                 <div class="middle">
                     <div class="inner">我是最里面的div</div>
@@ -58,7 +56,7 @@
         
         
         <div class="box1">
-            <h1>事件代理（事件委托）</h1>
+            <h1>4、事件代理（事件委托）</h1>
             <div id="eventBox">
                 <el-button type="success">成功按钮</el-button>
                 <el-button type="info">信息按钮</el-button>
@@ -69,7 +67,7 @@
         
         
         <div style="width: 50%;" class="box1">
-            <h1>BFC块级格式化上下文实现两栏布局</h1>
+            <h1>5、BFC块级格式化上下文实现两栏布局</h1>
             <div style="border: 1px solid #fff;">
                 <div class="floatBox">
                     浮动元素
@@ -84,28 +82,30 @@
         
         <!--        函数的防抖和节流-->
         <div class="box1">
-            <h1>函数的防抖</h1>
-            <el-input v-model="debounceText" placeholder="请输入内容"></el-input>
+            <h1>6、防抖和节流</h1>
+            <div>
+                <p>防抖：短时间内频繁触发事件，均不执行，只有停止触发时间超过规定的延迟执行时间，才会执行。</p>
+                <el-input v-model="debounceText" placeholder="请输入内容" style="width: 260px;"></el-input>
+            </div>
+            <div class="box2">
+                <p>节流：在规定时间内频繁触发事件，只执行一次函数。</p>
+                <el-button :plain="true" @click="alertMsg">打开消息提示</el-button>
+            </div>
+           
         </div>
         
         <div class="box1">
-            <h1>函数的节流</h1>
-            <el-button :plain="true" @click="alertMsg">打开消息提示</el-button>
-        </div>
-        <div class="box1">
-            <h1>回流和重绘</h1>
+            <h1>7、回流和重绘</h1>
             <div>
-                <div>
-                    <h3>首先了解浏览器渲染的过程：</h3>
-                    <p>1)、浏览器根据HTML生成DOM树（包括隐藏和动态生成的节点）。</p>
-                    <p>2)、根据样式表生成样式结构体。</p>
-                    <p>3)、两者结合生成render tree(不包含display：none和head节点，但包含visibility：hidden节点)</p>
-                    <p>4)、浏览器根据render tree渲染页面。</p>
-                </div>
-                <div class="box2">
-                    <p>回流：当render tree中的部分或全部因元素的布局、尺寸、显隐等改变而需要重新构建时，即为回流。</p>
-                    <p></p>
-                </div>
+                <p>首先了解浏览器渲染的过程：</p>
+                <p>1)、浏览器根据HTML生成DOM树（包括display:none和动态生成的节点）。</p>
+                <p>2)、根据样式表生成样式结构体。</p>
+                <p>3)、两者结合生成render tree(不包含display：none和head节点，但包含visibility：hidden节点)</p>
+                <p>4)、浏览器根据render tree渲染页面。</p>
+            </div>
+            <div class="box2">
+                <p>回流：当render tree中的部分或全部元素的尺寸、结构或者某些属性发生改变时，浏览器重新渲染文档的过程称为回流。</p>
+                <p>重绘：当页面中的元素只是样式发生改变，并不影响它在文档流中的位置时，浏览器将新样式赋予元素并重新绘制的过程，称为重绘。</p>
             </div>
         </div>
     </div>
@@ -132,8 +132,8 @@
             /*
             * 手写响应式
             * */
-            let input = document.querySelector('input')
-            let p = document.querySelector('#model')
+            let input = document.getElementById('responsInput')
+            let p = document.getElementById('model')
             const obj = {}
             let inputValue = ''
             Object.defineProperty(obj, 'msg', {
@@ -155,14 +155,14 @@
            * */
             //事件冒泡
             let wrap = document.getElementsByClassName('wrap')[0]
-            let box = document.getElementsByClassName('box')[0]
+            let box = document.getElementsByClassName('middle')[0]
             let inner = document.getElementsByClassName('inner')[0]
 
             wrap.addEventListener('click', function () {
                 console.log('我是冒泡: wrap')
             }, false)
             box.addEventListener('click', function () {
-                console.log('我是冒泡: box')
+                console.log('我是冒泡: middle')
             }, false)
             inner.addEventListener('click', function (e) {
                 if (e.stopPropagation) {
@@ -178,7 +178,7 @@
                 console.log('我是捕获: wrap111')
             }, true)
             box.addEventListener('click', function () {
-                console.log('我是捕获: box111')
+                console.log('我是捕获: middle111')
             }, true)
             inner.addEventListener('click', function () {
                 console.log('我是捕获: inner111')
@@ -219,7 +219,7 @@
             },
 
             /*
-            * 节流：持续触发函数时，一段时间内只执行一次函数。
+            * 节流：一段时间内持续触发函数，按照规定间隔时间执行一次。
             * 实现：按钮的点击，设置一个开关为true，此时代表可以执行任务。用户首次触发后，关闭开关并执行任务，此时再次触发事件不会执行。在n秒内任务执行完成，再打开开关，代表可以执行新的任务。
             * 实现：滚动条的持续滚动
             * 理解：用户首次触发后，在n秒内持续触发也只会执行一次函数，直到任务执行完成后，用户触发才会再次执行。
