@@ -66,13 +66,13 @@
         </div>
         
         
-        <div style="width: 50%;" class="box1">
+        <div style="width: 40%;" class="box1">
             <h1>5、BFC块级格式化上下文实现两栏布局</h1>
-            <div style="border: 1px solid #fff;">
+            <div class="bfcBox">
                 <div class="floatBox">
-                    浮动元素
+                    <p>浮动元素</p>
                 </div>
-                <div class="bfcBox">
+                <div class="flexBox">
                     <p>我是第一个p</p>
                     <p>我是另一个p</p>
                 </div>
@@ -88,7 +88,7 @@
                 <el-input v-model="debounceText" placeholder="请输入内容" style="width: 260px;"></el-input>
             </div>
             <div class="box2">
-                <p>节流：在规定时间内频繁触发事件，只执行一次函数。</p>
+                <p>节流：在一段时间内持续触发事件，只在规定时间内执行一次。</p>
                 <el-button :plain="true" @click="alertMsg">打开消息提示</el-button>
             </div>
            
@@ -106,6 +106,13 @@
             <div class="box2">
                 <p>回流：当render tree中的部分或全部元素的尺寸、结构或者某些属性发生改变时，浏览器重新渲染文档的过程称为回流。</p>
                 <p>重绘：当页面中的元素只是样式发生改变，并不影响它在文档流中的位置时，浏览器将新样式赋予元素并重新绘制的过程，称为重绘。</p>
+            </div>
+        </div>
+        
+        <div class="box1">
+            <h1>8、CSS画一个大小为父元素宽度一半的正方形</h1>
+            <div class="outer">
+                <div class="inner1"></div>
             </div>
         </div>
     </div>
@@ -135,14 +142,9 @@
             let input = document.getElementById('responsInput')
             let p = document.getElementById('model')
             const obj = {}
-            let inputValue = ''
             Object.defineProperty(obj, 'msg', {
-                get() {
-                    return inputValue;
-                },
                 set(value) {
-                    inputValue = value;
-                    p.innerHTML = inputValue;
+                    p.innerHTML = value;
                 }
             })
 
@@ -219,7 +221,7 @@
             },
 
             /*
-            * 节流：一段时间内持续触发函数，按照规定间隔时间执行一次。
+            * 节流：一段时间内持续触发函数，只在规定时间内执行一次。
             * 实现：按钮的点击，设置一个开关为true，此时代表可以执行任务。用户首次触发后，关闭开关并执行任务，此时再次触发事件不会执行。在n秒内任务执行完成，再打开开关，代表可以执行新的任务。
             * 实现：滚动条的持续滚动
             * 理解：用户首次触发后，在n秒内持续触发也只会执行一次函数，直到任务执行完成后，用户触发才会再次执行。
@@ -281,20 +283,32 @@
             }
         }
         
-        .floatBox {
-            float: left;
-            width: 150px;
-            text-align: center;
+        .bfcBox {
+            border: 1px solid #fff;
+            .floatBox {
+                float: left;
+                width: 150px;
+                text-align: center;
+            }
+            .flexBox{
+                display: flex;
+                flex-direction: column;
+                border-left: 1px solid #fff;
+                p {
+                    border: 1px solid #fff;
+                    margin:   auto;
+                }
+            }
         }
         
-        .bfcBox {
-            display: flex;
-            flex-direction: column;
-            border-left: 1px solid #fff;
-            
-            p {
-                border: 1px solid #fff;
-                margin: auto;
+        .outer{
+            width: 100px;
+            height: 100px;
+            border: 1px solid #fff;
+            .inner1{
+                width: 50%;
+                height: 50%;
+                background-color: #eeeeee;
             }
         }
         
